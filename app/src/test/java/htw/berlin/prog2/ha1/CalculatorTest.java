@@ -90,5 +90,19 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+    @Test
+    @DisplayName("should ad a decimal dot")
+    void testDecimalDot() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressDotKey();
+        calc.pressDigitKey(7);
+        String expected = "1.7";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
+
 
