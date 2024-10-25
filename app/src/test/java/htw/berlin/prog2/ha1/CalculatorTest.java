@@ -132,6 +132,39 @@ class CalculatorTest {
         assertEquals(expected, actual);
 
     }
+   @Test
+   @DisplayName("schould display result after multiplication and addition of 3 bunbers")
+    void testMultiplicationAndAddition() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("*");
+        calc.pressDigitKey(2);
+        calc.pressEqualsKey();
+        String expected = "70";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+
+   }
+   @Test
+   @DisplayName("schould display result after calculating 5% of a number")
+    void testCalculatePercentageOfNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(0);
+        calc.pressDigitKey(0);
+        calc.pressUnaryOperationKey("%");
+        calc.pressBinaryOperationKey("*");
+        calc.pressDigitKey(5);
+        String expected = "25.0";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+
+   }
+
 
 
 
