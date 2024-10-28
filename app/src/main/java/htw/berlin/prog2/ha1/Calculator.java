@@ -64,6 +64,7 @@ public class Calculator {
         if (operation.equals("*")) {
             latestOperation = "x";
         } else {
+
             latestOperation = operation;
         }
     }
@@ -129,6 +130,8 @@ public class Calculator {
             case "/" -> latestValue / Double.parseDouble(screen);
             case "%" -> latestValue % Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
+
+
 
         };
         screen = Double.toString(result);
