@@ -152,16 +152,16 @@ class CalculatorTest {
 
 
    @Test
-   @DisplayName("schould display result after calculating 5% of a number")
-    void testCalculatePercentageOfNumbers() {
+   @DisplayName("schould display result after addition and multiplication of 3 numbers")
+    void testMultiplicationAndAdditionOf3Numbers() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(5);
         calc.pressDigitKey(0);
-        calc.pressDigitKey(0);
-        calc.pressUnaryOperationKey("%");
+        calc.pressUnaryOperationKey("+");
+        calc.pressDigitKey(5);
         calc.pressBinaryOperationKey("*");
         calc.pressDigitKey(5);
-        String expected = "25.0";
+        String expected = "75";
         String actual = calc.readScreen();
         assertEquals(expected, actual);
 
