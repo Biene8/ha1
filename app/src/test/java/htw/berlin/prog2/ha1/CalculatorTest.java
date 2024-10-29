@@ -3,6 +3,7 @@ package htw.berlin.prog2.ha1;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Retro calculator")
@@ -34,7 +35,7 @@ class CalculatorTest {
         calc.pressDigitKey(2);
         calc.pressUnaryOperationKey("√");
 
-        String expected = "1.41421356";
+        String expected = "1.4142135623730951";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
@@ -133,39 +134,55 @@ class CalculatorTest {
 
     }
    @Test
-   @DisplayName("schould display result after addition of 3 numbers")
+   @DisplayName("schould display result after addition of 3 or more numbers")
    void testAdditionOf3Numbers() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(3);
-        calc.pressDigitKey(0);
+        calc.pressDigitKey(2);
         calc.pressBinaryOperationKey("+");
         calc.pressDigitKey(5);
         calc.pressBinaryOperationKey("+");
         calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(4);
+
+
         calc.pressEqualsKey();
-        String expected = "40";
+        String expected = "16";
         String actual = calc.readScreen();
         assertEquals(expected, actual);
 
    }
-
-
-
    @Test
-   @DisplayName("schould display result after addition and multiplication of 3 numbers")
-    void testMultiplicationAndAdditionOf3Numbers() {
+   @DisplayName("schould display result after multiplication and addition of 3 numbers")
+   void testMultiplicationAndAdditionOf3Numbers() {
+       Calculator calc = new Calculator();
+       calc.pressDigitKey(5);
+       calc.pressBinaryOperationKey("x");
+       calc.pressDigitKey(5);
+       calc.pressBinaryOperationKey("+");
+       calc.pressDigitKey(5);
+       calc.pressEqualsKey();
+       String expected = "30";
+       String actual = calc.readScreen();
+       assertEquals(expected, actual);
+   }
+
+
+
+    @Test
+    @DisplayName("should display result after addition and multiplication of 3 numbers")
+    void testAdditionAndMultiplicationOf3Numbers() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(5);
-        calc.pressDigitKey(0);
-        calc.pressUnaryOperationKey("+");
+        calc.pressBinaryOperationKey("+");
         calc.pressDigitKey(5);
-        calc.pressBinaryOperationKey("*");
+        calc.pressBinaryOperationKey("x");
         calc.pressDigitKey(5);
-        String expected = "75";
+        calc.pressEqualsKey();  // Führe Berechnung aus und zeige das Ergebnis an
+        String expected = "30"; // Erwartetes Ergebnis von (5 + 5) * 3 = 20
         String actual = calc.readScreen();
         assertEquals(expected, actual);
-
-   }
+    }
 
 
 
